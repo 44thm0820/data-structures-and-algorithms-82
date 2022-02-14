@@ -25,6 +25,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   // Solution code here...
+  let arrNew = [];
+  arr.forEach(str => arrNew.push(str + '!'));
+  return arrNew;
 };
 
 /* ------------------------------------------------------------------------------------------------
