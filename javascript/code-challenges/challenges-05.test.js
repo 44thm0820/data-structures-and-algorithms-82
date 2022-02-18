@@ -117,6 +117,10 @@ let starWarsData = [{
 
 const returnNames = (arr) => {
   // Solution code here...
+  return arr.reduce((prev, curr) => {
+    prev.push(curr.name);
+    return prev;
+  }, []);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,7 +133,15 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
+  return str.split('').reduce((prev, curr) => curr + prev, '');
 };
+// const reversedString = (str) => {
+//   // Solution code here...
+//   return str.split('').reduce((prev, curr) =>{
+//     prev.unshift(curr);
+//     return prev;
+//   }, []).join('');
+// };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
@@ -182,6 +194,10 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce((prev, curr) => {
+
+    return prev + (Array.isArray(curr.children) ? curr.children.length : 0);
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -328,7 +344,7 @@ describe('Testing challenge 6', () => {
   });
 });
 
-xdescribe('Testing challenge 7', () => {
+describe('Testing challenge 7', () => {
   test('It should return the total number of children', () => {
     expect(countNumberOfChildren(characters)).toStrictEqual(14);
   });
