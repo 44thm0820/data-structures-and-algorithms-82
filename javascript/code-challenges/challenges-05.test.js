@@ -33,15 +33,17 @@ CHALLENGE 3
 
 Write a function named addPurchases that, given an array of objects as input, uses reduce to find the total amount purchased. Each object contains the keys `item` and `purchasePrice` like the example.
 
+let myarr = [{item: 'switch', purchasePrice: 399}, 
+{item: 'switch', purchasePrice: 1}];
 {
   item: 'switch'
   purchasePrice: 399
 }
-
 ------------------------------------------------------------------------------------------------ */
 
 const addPurchases = (arr) => {
   // Solution code here...
+  return arr.reduce((prev, next) => prev + next.purchasePrice, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
