@@ -130,7 +130,13 @@ const gruffaloCrumble = {
 const listFoods = (recipe) => {
   let result = [];
   // Solution code here...
-  recipe.ingredients.forEach(item => result.push(item.split(' ').slice(2).join(' ')));
+  // recipe.ingredients.forEach(item => result.push(item.split(' ').slice(2).join(' ')));
+  recipe.ingredients.forEach(item => {
+    let firstWordRemoved = item.slice(item.indexOf(' ') + 1);
+    let firstTwoWordsRemoved = firstWordRemoved.slice(firstWordRemoved.indexOf(' ') + 1);
+    result.push(firstTwoWordsRemoved);
+  });
+  // result.push(item.split(' ').slice(2).join(' ')));
   return result;
 };
 
