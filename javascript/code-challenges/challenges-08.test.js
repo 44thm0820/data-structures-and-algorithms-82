@@ -95,6 +95,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
+  return /\d/g.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
