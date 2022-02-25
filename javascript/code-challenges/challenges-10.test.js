@@ -112,12 +112,18 @@ Write a function named salesData that uses forEach to iterate over the hourlySal
 ------------------------------------------------------------------------------------------------ */
 
 const salesData = (hours, data) => {
-  let formatSalesPerHour = (hourlyTotal, index) => ({sales: `${hourlyTotal} cookies`, time: hours[index]});
-  return data.map(formatSalesPerHour);
+  let formatData = (hourlySales, index) => ({sales: `${hourlySales} cookies`, time: hours[index]});
+  return data.map(formatData);
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
+
+describe('Testing challenge 6', () => {
+  test('It should return the number 24', () => {
+    expect(howManyTreats(errands)).toStrictEqual(24);
+  });
+});
 
 Write a function named howManyTreats that will return the quantity of treats you need to pick up from the pet store today from this array. The structure of the array will not change.
 ------------------------------------------------------------------------------------------------ */
@@ -139,6 +145,7 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  return errands.reduce((prevS, currStore) => currStore.store === 'Pet store' ? prevS + currStore.items.reduce((prev, currItem) => currItem.name === 'Treats' ? prev + currItem.quantity : prev, 0) : prevS , 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
