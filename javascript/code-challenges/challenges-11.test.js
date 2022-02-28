@@ -39,7 +39,9 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-  return input.reduce((prevOuter, arr) => prevOuter + arr.reduce((prevInner, int) => int === 5 ? prevInner + 1 : prevInner, 0), 0);
+  return input.reduce((prevOuter, arr) => prevOuter + arr.reduce(
+    (prevInner, int) => int === target ? prevInner + 1 : prevInner, 0
+  ), 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,6 +73,7 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  return input.map(arr => arr.filter(ele => typeof ele === 'number' && ele % 5 === 0));
 };
 
 /* ------------------------------------------------------------------------------------------------
