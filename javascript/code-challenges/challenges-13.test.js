@@ -57,10 +57,17 @@ CHALLENGE 3
 Write a function named findHappiness that takes in an array of strings and returns an array containing only the strings from the input array that contain ":)".
 
 For example, ['this is great :)', 'wow', 'whyyyyyy :(', ':)))))'] returns ['this is great :)', ':)))))']
+
+includes
+substr
+charAt
+charCodeAt
+fromCharCode
 ------------------------------------------------------------------------------------------------ */
 
 const findHappiness = (arr) => {
   // Solution code here...
+  return arr.filter(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -73,6 +80,7 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
+  return arr.map(str => str.split('').filter(char => Number(char) !== 'NaN').join(''));
 };
 
 /* ------------------------------------------------------------------------------------------------
