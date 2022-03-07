@@ -93,6 +93,7 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
