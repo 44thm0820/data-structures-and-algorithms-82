@@ -48,7 +48,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 const firstLetters = (arr) => {
   // Solution code here... substr
-  return arr.map(string => string.substr(0,1));
+  return arr.map(string => string.substr(0, 1));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,9 +80,8 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
-  return arr.map(str => str.split('').filter(char => Number(char) !== 'NaN').join(''));
-};
-
+  return arr.map(phoneStr => phoneStr.substring(1, 4) + phoneStr.substring(6, 9) + phoneStr.substring(10));
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5 
 
@@ -93,7 +92,7 @@ For example, 'abcdefg' returns 'bdf'
 
 const onlyOddChars = (str) => {
   // Solution code here...
-  
+  return str.split('').filter((char, idx) => idx % 2 === 1 ? char : '').join('');
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,6 +103,7 @@ Write a function named allHappy that takes in an array of strings and returns a 
 
 const allHappy = (arr) => {
   // Solution code here...
+  return arr.every(str => str.includes(':)'));
 };
 
 /* ------------------------------------------------------------------------------------------------
