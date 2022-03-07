@@ -36,6 +36,7 @@ const validateWord = (word) => {
   // Solution code here...
   // return /\b\w{5,10}\b/.test(word);
   return /\b[a-zA-Z]{5,10}\b/.test(word);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
