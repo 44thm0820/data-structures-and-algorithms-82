@@ -69,6 +69,9 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  return /^\w+([.-]?\w+)@\w+([-]?\w+)(.com)$/.test(email)
+    || /^\w+([.-]?\w+)@\w+([-]?\w+)(.net)$/.test(email)
+    || /^\w+([.-]?\w+)@\w+([-]?\w+)(.org)$/.test(email);
 };
 
 /* ------------------------------------------------------------------------------------------------
