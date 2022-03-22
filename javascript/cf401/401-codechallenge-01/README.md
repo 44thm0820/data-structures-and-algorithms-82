@@ -1,7 +1,7 @@
 # Reverse an Array
 <!-- Description of the challenge -->
 ## Feature Tasks
-Write a function called reverseArray which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
+Write a function called `reverseArray` which takes an array as an argument. Without utilizing any of the built-in methods available to your language, return an array with elements in reversed order.
 
 ### Specifications
 Read all of the following instructions carefully.
@@ -16,7 +16,7 @@ Your final whiteboard should look like this example layout.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![reverseArray-whiteboard](./reverse-array.png)
+![reverseArray-whiteboard](./array-reverse.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
