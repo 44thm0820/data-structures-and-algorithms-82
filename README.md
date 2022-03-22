@@ -6,8 +6,41 @@
 
 [Day 01-CodeChallenge01](./javascript/code-challenges/array-reverse)
 
+<br>
 
 ### 301 Code Challenges
+
+[Day 01-CodeChallenge01](./javascript/code-challenges/challenges-01.test.js)
+
+[Day 02-CodeChallenge02](./javascript/code-challenges/challenges-02.test.js)
+
+[Day 03-CodeChallenge03](./javascript/code-challenges/challenges-03.test.js)
+
+[Day 04-CodeChallenge04](./javascript/code-challenges/challenges-04.test.js)
+
+[Day 05-CodeChallenge05](./javascript/code-challenges/challenges-05.test.js)
+
+[Day 06-CodeChallenge06](./javascript/code-challenges/challenges-06.test.js)
+
+[Day 07-CodeChallenge07](./javascript/code-challenges/challenges-07.test.js)
+
+[Day 08-CodeChallenge08](./javascript/code-challenges/challenges-08.test.js)
+
+[Day 09-CodeChallenge09](./javascript/code-challenges/challenges-09.test.js)
+
+[Day 10-CodeChallenge10](./javascript/code-challenges/challenges-10.test.js)
+
+[Day 11-CodeChallenge11](./javascript/code-challenges/challenges-11.test.js)
+
+[Day 12-CodeChallenge12](./javascript/code-challenges/challenges-12.test.js)
+
+[Day 13-CodeChallenge13](./javascript/code-challenges/challenges-13.test.js)
+
+[Day 15-CodeChallenge15](./javascript/code-challenges/challenges-15.test.js)
+
+
+
+
 
 <!-- See [setup instructions](https://codefellows.github.io/setup-guide/code-301/3-code-challenges), in the Code 301 Setup Guide.
 
