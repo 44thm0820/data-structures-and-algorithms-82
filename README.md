@@ -6,6 +6,8 @@
 
 [Day 01-CodeChallenge01](./javascript/code-challenges/array-reverse)
 
+[Day 02-CodeChallenge02](./javascript/code-challenges/array-insert-shift)
+
 <br>
 
 ### 301 Code Challenges
