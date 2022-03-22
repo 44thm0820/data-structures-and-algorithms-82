@@ -4,7 +4,7 @@
 
 ### 401 Data Structures, Code Challenges
 
-[Day 01-CodeChallenge01](/Users/rey/Projects/courses/cf301/sea301d82/data-structures-and-algorithms-82/javascript/cf401/401-codechallenge-01/README.md)
+[Day 01-CodeChallenge01](./javascript/code-challenges/array-reverse)
 
 
 ### 301 Code Challenges
