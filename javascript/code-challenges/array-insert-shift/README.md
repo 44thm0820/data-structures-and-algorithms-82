@@ -20,7 +20,7 @@ Your final whiteboard should look like [this example layout](https://codefellows
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![insertShiftArray-whiteboard](./insertShiftArray.png)
+![insertShiftArray-whiteboard](./array-insert-shift.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
