@@ -1,5 +1,7 @@
-# Insert and shift an array in middle at index
+# Insert to Middle of an Array
+<!-- # Insert and shift an array in middle at index -->
 <!-- Description of the challenge -->
+
 ## Feature Tasks
 - Write a function called `insertShiftArray` which takes in an array and a value to be added. Without utilizing any of the built-in methods available to your language, return an array with the new value added at the middle index.
 <!-- https://www.markdownguide.org/cheat-sheet/ -->
@@ -18,3 +20,8 @@ Your final whiteboard should look like [this example layout](https://codefellows
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
+![insertShiftArray-whiteboard](./insertShiftArray.png)
+
+## Approach & Efficiency
+<!-- What approach did you take? Discuss Why. What is the Big O space/time for this approach? -->
+I followed the instructions given at https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Whiteboard_Workflow.html as my approach.  The big O is O(n+1) for small n and O(n) for larger n.
