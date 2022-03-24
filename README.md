@@ -8,6 +8,8 @@
 
 [Day 02-CodeChallenge02](./javascript/code-challenges/array-insert-shift)
 
+[Day 03-CodeChallenge02](./javascript/code-challenges/array-binary-search)
+
 <br>
 
 ### 301 Code Challenges
