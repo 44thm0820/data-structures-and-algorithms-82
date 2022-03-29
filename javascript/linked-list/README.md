@@ -40,10 +40,10 @@ insert is O(1), to string is O(n), includes is O(n) times.
 ## API
 <!-- Description of each method publicly available to your Linked List -->
 - Create a Linked List class
-- Within your Linked List class, include a head property.
-  - Upon instantiation, an empty Linked List should be created.
+- Within your Linked List class, includes a head property.
+  - Upon instantiation, an empty Linked List iscreated.
 
-- The class should contain the following methods
+- The class contains the following methods
   - insert
     - Arguments: value
     - Returns: nothing
