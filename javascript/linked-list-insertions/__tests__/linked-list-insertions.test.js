@@ -79,5 +79,30 @@ describe('testing the Linked List Class', () => {
     list.add('a');
     expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> NULL');
   });
+});
+
+describe('testing the Linked List Class to allow various insertion methods', () => {
+
+  // Can successfully add a node to the end of the linked list
+  test('Can successfully add a node to the end of the linked list', () => {
+    let list = new LinkedList();
+    list.add('b');
+    list.add('a');
+    list.append('c');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> NULL');
+  });
+
+  // Can successfully add multiple nodes to the end of a linked list
+  test('Can successfully add multiple nodes to the end of a linked list', () => {
+    let list = new LinkedList();
+    list.append('a');
+    list.append('b');
+    list.append('c');
+    list.append('d');
+    list.append('e');
+    list.append('f');
+    list.append('g');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+  });
 
 });

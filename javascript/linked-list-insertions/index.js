@@ -43,6 +43,18 @@ class LinkedList {
     }
     return result.join(' -> ') + ' -> NULL';
   }
+
+  append(value) {
+    let current = this.head;
+    if (current === null) {
+      this.head = new Node(value);
+    } else {
+      while (current.next !== null) {
+        current = current.next;
+      }
+      current.next = new Node(value);
+    }
+  }
 }
 
 exports.Node = Node;
