@@ -257,7 +257,7 @@ describe('testing the Linked List class to allow the method to zip the two linke
     list2.add(9);
     list2.add(5);
     expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 2 ] -> [ 4 ] -> NULL');
-    expect(list.zipLists(list1,list2).size).toEqual(6);
+    expect(list.size).toEqual(6);
   });
 
   // Where size of list1 is lesser than size of list2
@@ -271,7 +271,7 @@ describe('testing the Linked List class to allow the method to zip the two linke
     list2.add(9);
     list2.add(5);
     expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 4 ] -> NULL');
-    expect(list.zipLists(list1,list2).size).toEqual(5);
+    expect(list.size).toEqual(5);
 
   });
 
@@ -286,7 +286,7 @@ describe('testing the Linked List class to allow the method to zip the two linke
     list2.add(9);
     list2.add(5);
     expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 2 ] -> NULL');
-    expect(list.zipLists(list1,list2).size).toEqual(5);
+    expect(list.size).toEqual(5);
   });
 
 });

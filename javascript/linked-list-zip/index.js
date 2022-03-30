@@ -117,20 +117,19 @@ class LinkedList {
     return result[k];
   }
   zipLists(list1, list2) {
-    let list3 = new LinkedList();
     let c1 = list1.head;
     let c2 = list2.head;
     while(c1 || c2) {
       if (c1) {
-        list3.append(c1.value);
+        this.append(c1.value);
         c1 = c1.next;
       }
       if (c2) {
-        list3.append(c2.value);
+        this.append(c2.value);
         c2 = c2.next;
       }
     }
-    return list3;
+    return this;
   }
 
 
