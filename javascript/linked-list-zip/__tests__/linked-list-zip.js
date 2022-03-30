@@ -241,5 +241,52 @@ describe('testing the Linked List Class to allow kth from end method', () => {
     expect(list.kthFromEnd(2)).toEqual('c');
     expect(list.kthFromEnd(3)).toEqual('b');
   });
+});
+
+describe('testing the Linked List class to allow the method to zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the zipped list', () => {
+
+  // Where both list1 and list2 are the same size
+  test('Where both list1 and list2 are the same size', () => {
+    let list = new LinkedList();
+    let list1 = new LinkedList();
+    list1.add(2);
+    list1.add(3);
+    list1.add(1);
+    let list2 = new LinkedList();
+    list2.add(4);
+    list2.add(9);
+    list2.add(5);
+    expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 2 ] -> [ 4 ] -> NULL');
+    expect(list.zipLists(list1,list2).size).toEqual(6);
+  });
+
+  // Where size of list1 is lesser than size of list2
+  test('Where size of list1 is lesser than size of list2', () => {
+    let list = new LinkedList();
+    let list1 = new LinkedList();
+    list1.add(3);
+    list1.add(1);
+    let list2 = new LinkedList();
+    list2.add(4);
+    list2.add(9);
+    list2.add(5);
+    expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 4 ] -> NULL');
+    expect(list.zipLists(list1,list2).size).toEqual(5);
+
+  });
+
+  // Where size of list1 is greater than size of list2
+  test('Where size of list1 is greater than size of list2', () => {
+    let list = new LinkedList();
+    let list1 = new LinkedList();
+    list1.add(2);
+    list1.add(3);
+    list1.add(1);
+    let list2 = new LinkedList();
+    list2.add(9);
+    list2.add(5);
+    expect(list.zipLists(list1,list2).toString()).toEqual('[ 1 ] -> [ 5 ] -> [ 3 ] -> [ 9 ] -> [ 2 ] -> NULL');
+    expect(list.zipLists(list1,list2).size).toEqual(5);
+  });
 
 });
