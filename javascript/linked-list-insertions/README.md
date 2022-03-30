@@ -23,7 +23,7 @@ Extend a Linked List to allow various insertion methods.
 
 - insert after
   - arguments: value, new value
-adds a new node with the given new value immediately after the first node that has the value specified
+  - adds a new node with the given new value immediately after the first node that has the value specified
 
 # Tests
 

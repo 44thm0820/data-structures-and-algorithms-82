@@ -96,6 +96,19 @@ describe('testing the Linked List Class to allow various insertion methods', () 
   test('Can successfully add multiple nodes to the end of a linked list', () => {
     let list = new LinkedList();
     list.append('a');
+    expect(list.append('b')).toEqual(2);
+    list.append('c');
+    list.append('d');
+    list.append('e');
+    list.append('f');
+    list.append('g');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+  });
+
+  // Can successfully insert a node before a node located in the middle of a linked list
+  test('Can successfully insert a node before a node located in the middle of a linked list', () => {
+    let list = new LinkedList();
+    list.append('a');
     list.append('b');
     list.append('c');
     list.append('d');
@@ -103,6 +116,77 @@ describe('testing the Linked List Class to allow various insertion methods', () 
     list.append('f');
     list.append('g');
     expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+    list.insertBefore('g','fz');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+  });
+
+  // Can successfully insert a node before the first node of a linked list
+  test('Can successfully insert a node before the first node of a linked list', () => {
+    let list = new LinkedList();
+    expect(list.insertBefore('a', '0putmehere')).toEqual(0);
+    list.append('a');
+    list.append('b');
+    expect(list.append('c')).toEqual(3);
+    list.append('d');
+    list.append('e');
+    list.append('f');
+    list.append('g');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+    list.insertBefore('g','fz');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertBefore('a', '0')).toEqual(9);
+    expect(list.insertBefore('APPLES', '0')).toEqual(9);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+  });
+
+  // Can successfully insert after a node in the middle of the linked list
+  test('Can successfully insert after a node in the middle of the linked list', () => {
+    let list = new LinkedList();
+    expect(list.insertBefore('a', '0putmehere')).toEqual(0);
+    expect(list.insertAfter('a', '0putmehere')).toEqual(0);
+    list.append('a');
+    list.append('b');
+    expect(list.append('c')).toEqual(3);
+    list.append('d');
+    list.append('e');
+    list.append('f');
+    list.append('g');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+    list.insertBefore('g','fz');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertBefore('a', '0')).toEqual(9);
+    expect(list.insertBefore('APPLES', '0')).toEqual(9);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertAfter('b', 'bb')).toEqual(10);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ bb ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertAfter('z', 'zz')).toEqual(10);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ bb ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+  });
+
+  // Can successfully insert a node after the last node of the linked list
+  test('Can successfully insert a node after the last node of the linked list', () => {
+    let list = new LinkedList();
+    expect(list.insertBefore('a', '0putmehere')).toEqual(0);
+    expect(list.insertAfter('a', '0putmehere')).toEqual(0);
+    list.append('a');
+    list.append('b');
+    expect(list.append('c')).toEqual(3);
+    list.append('d');
+    list.append('e');
+    list.append('f');
+    list.append('g');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ g ] -> NULL');
+    list.insertBefore('g','fz');
+    expect(list.toString()).toEqual('[ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertBefore('a', '0')).toEqual(9);
+    expect(list.insertBefore('APPLES', '0')).toEqual(9);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertAfter('b', 'bb')).toEqual(10);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ bb ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertAfter('z', 'zz')).toEqual(10);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ bb ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> NULL');
+    expect(list.insertAfter('g', 'zzzzz')).toEqual(11);
+    expect(list.toString()).toEqual('[ 0 ] -> [ a ] -> [ b ] -> [ bb ] -> [ c ] -> [ d ] -> [ e ] -> [ f ] -> [ fz ] -> [ g ] -> [ zzzzz ] -> NULL');
   });
 
 });
