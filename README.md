@@ -16,6 +16,7 @@
 
 [Day 07-CodeChallenge07](./javascript/linked-list-kth)
 
+[Day 08-CodeChallenge07](./javascript/linked-list-zip)
 
 
 
