@@ -10,6 +10,15 @@
 
 [Day 03-CodeChallenge03](./javascript/code-challenges/array-binary-search)
 
+[Day 05-CodeChallenge05](./javascript/linked-list)
+
+[Day 06-CodeChallenge06](./javascript/linked-list-insertions)
+
+[Day 07-CodeChallenge07](./javascript/linked-list-kh)
+
+
+
+
 <br>
 
 ### 301 Code Challenges
