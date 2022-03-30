@@ -140,7 +140,53 @@ def test_should_accept_only_numbers():
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 I used a while loop to traverse both linked lists, each iteration, from list1 first and list2 second, inserting the value found in each node in the linked list. O(n) time.
 
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
 
+Run` npm test` from the root directory of `linked-list-zip`
 
-## API
-<!-- Description of each method publicly available to your Linked List -->
+```
+% npm test
+
+> data-structures-and-algorithms@1.0.0 test
+> jest --verbose --coverage
+
+ PASS  __tests__/linked-list-zip.js
+  testing the Linked List Class
+    ✓ Can successfully instantiate an empty linked list (1 ms)
+    ✓ Can properly insert into the linked list (1 ms)
+    ✓ The head property will properly point to the first node in the linked list
+    ✓ Can properly insert multiple nodes into the linked list
+    ✓ Will return true when finding a value within the linked list that exists (1 ms)
+    ✓ Will return false when searching for a value in the linked list that does not exist
+    ✓ Can properly return a collection of all the values that exist in the linked list
+  testing the Linked List Class to allow various insertion methods
+    ✓ Can successfully add a node to the end of the linked list
+    ✓ Can successfully add multiple nodes to the end of a linked list
+    ✓ Can successfully insert a node before a node located in the middle of a linked list
+    ✓ Can successfully insert a node before the first node of a linked list (1 ms)
+    ✓ Can successfully insert after a node in the middle of the linked list
+    ✓ Can successfully insert a node after the last node of the linked list (1 ms)
+  testing the Linked List Class to allow kth from end method
+    ✓ Where k is greater than the length of the linked list
+    ✓ Where k and the length of the list are the same
+    ✓ Where k is not a positive integer
+    ✓ Where the linked list is of a size 1
+    ✓ “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+  testing the Linked List class to allow the method to zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the zipped list
+    ✓ Where both list1 and list2 are the same size
+    ✓ Where size of list1 is lesser than size of list2
+    ✓ Where size of list1 is greater than size of list2 (1 ms)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |     100 |      100 |     100 |     100 |                   
+ index.js |     100 |      100 |     100 |     100 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       21 passed, 21 total
+Snapshots:   0 total
+Time:        0.696 s, estimated 1 s
+Ran all test suites.
+```
