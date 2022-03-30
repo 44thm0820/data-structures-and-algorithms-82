@@ -14,7 +14,7 @@
 
 [Day 06-CodeChallenge06](./javascript/linked-list-insertions)
 
-[Day 07-CodeChallenge07](./javascript/linked-list-kh)
+[Day 07-CodeChallenge07](./javascript/linked-list-kth)
 
 
 
