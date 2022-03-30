@@ -5,7 +5,7 @@
 <!-- Description of the challenge -->
 Code Challenge: Class 07
 
-k-th value from the end of a linked list.
+Zip two linked lists.
 
 ## Features
 
@@ -138,6 +138,7 @@ def test_should_accept_only_numbers():
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+I used a while loop to traverse both linked lists, each iteration, from list1 first and list2 second, inserting the value found in each node in the linked list. O(n) time.
 
 
 
