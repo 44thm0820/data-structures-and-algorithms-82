@@ -133,68 +133,85 @@ class LinkedList {
   }
 }
 
-/* ALGORITHM push(value)
-// INPUT <-- value to add, wrapped in Node internally
-// OUTPUT <-- none
-   node = new Node(value)
-   node.next <-- Top
-   top <-- Node */
+class Stack {
+  constructor() {
+    this.top = null;
+    this.size = 0;
+  }
+  isEmpty() {
+    return this.size <= 0;
+  }
+  pop() {
+    if (this.isEmpty()) {
+      console.error('you cannot pop if stack is empty');
+      return undefined;
+    }
+    let temp = this.top;
+    this.top = temp.next;
+    temp.next = null;
+    this.size -= 1;
+    return temp.value;
+  }
+  push(value) {
+    let node = new Node(value);
+    node.next = this.top;
+    this.top = node;
+    this.size += 1;
+    return this.size;
+  }
+  peek() {
+    if (this.isEmpty()) {
+      console.error('you cannot pop if stack is empty');
+      return undefined;
+    } else {
+      return this.top.value;
+    }
+  }
+}
 
-/* ALGORITHM pop()
-// INPUT <-- No input
-// OUTPUT <-- value of top Node in stack
-// EXCEPTION if stack is empty
+class Queue {
+  constructor() {
+    this.front = null;
+    this.back = null;
+    this.size = 0;
+  }
+  isEmpty() {
+    return this.size <= 0;
+  }
+  dequeue() {
+    if (this.isEmpty()) {
+      console.error('you cannot dequeue if queue is empty');
+      return undefined;
+    }
+    let temp = this.front;
+    this.front = temp.next;
+    temp.next = null;
+    this.size -= 1;
+    return temp.value;
+  }
+  enqueue(value) {
+    let node = new Node(value);
+    this.rear.next = node;
+    this.rear = node;
+    this.size += 1;
+    return this.size;
+  }
 
-  Node temp <-- top
-  top <-- top.next
-  temp.next <-- null
-    return temp.value */
+  peek() {
+    if (this.isEmpty()) {
+      console.error('you cannot dequeue if queue is empty');
+      return undefined;
+    } else {
+      return this.front.value;
+    }
+  }
 
-/*     ALGORITHM peek()
-    // INPUT <-- none
-    // OUTPUT <-- value of top Node in stack
-    // EXCEPTION if stack is empty
-
-       return top.value */
-
-/*        ALGORITHM isEmpty()
-       // INPUT <-- none
-       // OUTPUT <-- boolean
-       
-       return top = NULL */
-
-/*        ALGORITHM enqueue(value)
-       // INPUT <-- value to add to queue (will be wrapped in Node internally)
-       // OUTPUT <-- none
-          node = new Node(value)
-          rear.next <-- node
-          rear <-- node */
-       
-/*           ALGORITHM dequeue()
-          // INPUT <-- none
-          // OUTPUT <-- value of the removed Node
-          // EXCEPTION if queue is empty
-          
-             Node temp <-- front
-             front <-- front.next
-             temp.next <-- null
-          
-             return temp.value */
-
-/*              ALGORITHM peek()
-             // INPUT <-- none
-             // OUTPUT <-- value of the front Node in Queue
-             // EXCEPTION if Queue is empty
-             
-                return front.value */
-
-/*                 ALGORITHM isEmpty()
-                // INPUT <-- none
-                // OUTPUT <-- boolean
-                
-                return front = NULL */
+}
 
 exports.Node = Node;
 
-module.exports = LinkedList;
-
+module.exports = {
+  LinkedList,
+  Stack,
+  Queue
+};
