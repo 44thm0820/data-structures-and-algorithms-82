@@ -1,5 +1,8 @@
 'use strict';
+const { describe } = require('eslint/lib/rule-tester/rule-tester');
 const LinkedList = require('../index.js');
+const Stack = require('../index.js');
+const Queue = require('../index.js');
 // const { Node } = require('../index.js');
 
 // Require our linked list implementation
@@ -290,3 +293,106 @@ describe('testing the Linked List class to allow the method to zip the two linke
   });
 
 });
+
+describe('testing the Stack Class', () => {
+  // Can successfully instantiate an empty stack
+  test('Can successfully instantiate an empty stack', () => {
+    let stack = new Stack();
+    expect(stack.top).toEqual(null);
+    expect(stack.size).toEqual(0);
+  });
+  // Can properly push onto a stack
+  test('Can properly push onto a stack', () => {
+    let stack = new Stack();
+    expect(stack.push(52)).toEqual(1);
+    expect(stack.top.next.value).toEqual(52);
+    expect(stack.push('cards')).toEqual(2);
+    expect(stack.top.value).toEqual('cards');
+  });
+  // Can successfully push multiple values onto a stack
+  test('Can successfully push multiple values onto a stack', () => {
+    let stack = new Stack();
+    expect(stack.push(3)).toEqual(1);
+    expect(stack.top.value).toEqual(1);
+    expect(stack.push('2')).toEqual(2);
+    expect(stack.top.next.value).toEqual('2');
+    expect(stack.push(1)).toEqual(3);
+    expect(stack.top.next.next.value).toEqual(3);
+  });
+  // Can successfully pop off the stack
+  test('Can successfully pop off the stack', () => {
+    let stack = new Stack();
+    expect(stack.push(3)).toEqual(1);
+    expect(stack.top.value).toEqual(1);
+    expect(stack.push('2')).toEqual(2);
+    expect(stack.top.next.value).toEqual('2');
+    expect(stack.push(1)).toEqual(3);
+    expect(stack.top.next.next.value).toEqual(3);
+    expect(stack.pop()).toEqual(1);
+    expect(stack.pop()).toEqual('2');
+    expect(stack.pop()).toEqual(3);
+  });
+
+  // Can successfully empty a stack after multiple pops
+  test('Can successfully empty a stack after multiple pops', () => {
+    let stack = new Stack();
+    expect(stack.push(3)).toEqual(1);
+    expect(stack.top.value).toEqual(1);
+    expect(stack.push('2')).toEqual(2);
+    expect(stack.top.next.value).toEqual('2');
+    expect(stack.push(1)).toEqual(3);
+    expect(stack.top.next.next.value).toEqual(3);
+    expect(stack.pop()).toEqual(1);
+    expect(stack.pop()).toEqual('2');
+    expect(stack.pop()).toEqual(3);
+    expect(stack.size).toEqual(0);
+  });
+
+  // Can successfully peek the next item on the stack
+  test('Can successfully peek the next item on the stack', () => {
+    let stack = new Stack();
+    expect(stack.push(3)).toEqual(1);
+    expect(stack.top.value).toEqual(1);
+    expect(stack.push('2')).toEqual(2);
+    expect(stack.top.next.value).toEqual('2');
+    expect(stack.push(1)).toEqual(3);
+    expect(stack.top.next.next.value).toEqual(3);
+    expect(stack.peek()).toEqual(3);
+  });
+
+  // Calling pop or peek on empty stack raises exception
+  test('Calling pop or peek on empty stack raises exception', () => {
+    let stack = new Stack();
+    expect(stack.push(3)).toEqual(1);
+    expect(stack.top.value).toEqual(1);
+    expect(stack.push('2')).toEqual(2);
+    expect(stack.top.next.value).toEqual('2');
+    expect(stack.push(1)).toEqual(3);
+    expect(stack.top.next.next.value).toEqual(3);
+    expect(stack.pop()).toEqual(1);
+    expect(stack.pop()).toEqual('2');
+    expect(stack.pop()).toEqual(3);
+    expect(stack.size).toEqual(0);
+    expect(stack.peek()).toEqual(undefined);
+  });
+});
+
+xdescribe('testing the Queue Class', () => {
+  test('Can successfully pop off the stack', () => {});
+
+});
+// Can successfully push onto a stack Y
+// Can successfully push multiple values onto a stack Y
+// Can successfully pop off the stack
+// Can successfully empty a stack after multiple pops
+// Can successfully peek the next item on the stack
+// Can successfully instantiate an empty stack Y
+// Calling pop or peek on empty stack raises exception
+
+// Can successfully enqueue into a queue
+// Can successfully enqueue multiple values into a queue
+// Can successfully dequeue out of a queue the expected value
+// Can successfully peek into a queue, seeing the expected value
+// Can successfully empty a queue after multiple dequeues
+// Can successfully instantiate an empty queue
+// Calling dequeue or peek on empty queue raises exception
