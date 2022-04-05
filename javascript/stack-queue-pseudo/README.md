@@ -1,70 +1,83 @@
-# Linked-List-zip
-<!-- Short summary or background information -->
 
-## Challenge
+
+# Challenge Summary 
+
+- Implement a Queue using two Stacks.
 <!-- Description of the challenge -->
-Code Challenge: Class 07
+- Code Challenge: Class 11
 
-Zip two linked lists.
+## Challenge Setup & Execution
+Branch Name: `stack-queue-pseudo`
 
-## Features
+Challenge Type: Code Challenge / Algorithm
 
-Using a Linked List as the underlying data storage mechanism, implement both a Stack and a Queue
+## Feature Tasks
 
+- Create a new class called pseudo queue.
+  - Do not use an existing Queue.
+  - Instead, this PseudoQueue class will implement our standard queue interface (the two methods listed below),
+  - Internally, utilize 2 `Stack` instances to create and manage the queue
 
-#### Node Class
+- Methods:
+  - enqueue
+    - Arguments: value
+    - Inserts value into the PseudoQueue, using a first-in, first-out approach.
+  - dequeue
+    - Arguments: none
+    - Extracts a value from the PseudoQueue, using a first-in, first-out approach.h
 
-- Create a Node class that has properties for the value stored in the Node, and a pointer to the next node.
+`NOTE`: The Stack instances have only `push`, `pop`, and `peek` methods. You should use your own Stack implementation. Instantiate these Stack objects in your PseudoQueue constructor.
 
+Example
+`enqueue(value)`
+| Input	            | Args | Output                 |
+| ----------------- | :--: | ---------------------- |
+| [10]->[15]->[20]	| 5	   | [5]->[10]->[15]->[20]  |
+|                   | 5	   | [5]                    |
 
-#### Stack Class
+`dequeue()`
+| Input	                | Output | Internal State   |
+| --------------------- | :----: | ---------------- |
+| [5]->[10]->[15]->[20]	| 20     | [5]->[10]->[15]  |
+| [5]->[10]->[15]	      | 15	   | [5]->[10]        |
 
-- Create a Stack class that has a top property. It creates an empty Stack when instantiated.
-  - This object should be aware of a default empty value assigned to top when the stack is created.
-  - The class should contain the following methods:
+### Stack methods
 
-- push
-  - Arguments: value
-  - adds a new node with that value to the top of the stack with an O(1) Time performance.
+1. Push - Nodes or items that are put into the stack are pushed
+2. Pop - Nodes or items that are removed from the stack are popped. When you attempt to pop an empty stack an exception will be raised.
+3. Top - This is the top of the stack.
+4. Peek - When you peek you will view the value of the top Node in the stack. When you attempt to peek an empty stack an exception will be raised.
+5. IsEmpty - returns true when stack is empty otherwise returns false.
 
-- pop
-  - Arguments: none
-  - Returns: the value from node from the top of the stack
-  - Removes the node from the top of the stack
-  - Should raise exception when called on empty stack
+### Queue methods
 
-- peek
-  - Arguments: none
-  - Returns: Value of the node located at the top of the stack
-  - Should raise exception when called on empty stack
+1. Enqueue - Nodes or items that are added to the queue.
+2. Dequeue - Nodes or items that are removed from the queue. If called when the queue is empty an exception will be raised.
+3. Front - This is the front/first Node of the queue.
+5. Back - This is the back/rear/last Node of the queue.
+6. Peek - When you peek you will view the value of the front Node in the queue. If called when the queue is empty an exception will be raised.
+7. IsEmpty - returns true when queue is empty otherwise returns false.
 
-- is empty
-  - Arguments: none
-  - Returns: Boolean indicating whether or not the stack is empty.
+## Requirements
 
+Ensure your complete solution follows the standard requirements.
 
-#### Queue Class
+  1. Write [unit tests](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Challenge_Testing)
+  2. Follow the [template for a well-formatted README](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Challenge_Documentation)
+  3. Submit the assignment following [these instructions](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Challenge_Submission)
 
-- Create a Queue class that has a front property. It creates an empty Queue when instantiated.
-  - This object should be aware of a default empty value assigned to front when the queue is created.
-- The class should contain the following methods:
-- enqueue
-  - Arguments: value
-  - adds a new node with that value to the back of the queue with an O(1) Time performance.
-- dequeue
-  - Arguments: none
-  - Returns: the value from node from the front of the queue
-  - Removes the node from the front of the queue
-  - Should raise exception when called on empty queue
-- peek
-  - Arguments: none
-  - Returns: Value of the node located at the front of the queue
-  - Should raise exception when called on empty stack
-- is empty
-  - Arguments: none
-  - Returns: Boolean indicating whether or not the queue is empty
-  
-  You have access to the Node class and all the properties on the Linked List class.
+## Daily whiteboard challenge rubric
+
+| Daily whiteboard challenge rubric | |  | 
+| :--------------------------------------------------------- | :-: | -----------: |
+| Criteria | Ratings	| Pts |
+| Whiteboard Exercise | | |
+| Possible deduction: // 2 pts: Did not follow whiteboard workflow // 2 pts: Did not DO the exercise // 1 pt: ~50% incomplete exercise // 1 pt: Any step of workflow does not follow the correct structure/syntax |    | 2 pts |
+| Code Implementation | | |
+| Possible deductions: // 0.5 pt: Inefficient solution // 0.5 pt: Missing comments/doc-strings // 1 pt: ~50% incomplete // 1 pt : Missing test requirements |  | 2 pts |
+| README
+Follows the standards provided in the specification for each challenge. Those standards typically include a Title, Challenge details, and a Solution image showing the whiteboard exercise. Point allocation is ALL OR NOTHING. |  | 1 pts |
+| | |                                                             Total Points: 5   |
 
 
 ## Structure and Testing
@@ -90,27 +103,14 @@ Write tests to prove the following functionality:
 
 Ensure your tests are passing before you submit your solution.
 
+## Whiteboard Process
+<!-- Embedded whiteboard image -->
+![code challenge 11 whiteboard - Rey Mercado](./wb-codechallenge-11-rey.png)
+
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
-I followed the directions from the readings and lecture as my approach to build out the methods. O(1) space and time.
+I followed the directions from the readings and lecture as my approach to build out the methods. O(n) space and time.
 
-## API
-<!-- Description of each method publicly available to your Stack and Queue-->
+## Solution
+<!-- Show how to run your code, and examples of it in action -->
 
-
-### Stack methods
-
-1. Push - Nodes or items that are put into the stack are pushed
-2. Pop - Nodes or items that are removed from the stack are popped. When you attempt to pop an empty stack an exception will be raised.
-3. Top - This is the top of the stack.
-4. Peek - When you peek you will view the value of the top Node in the stack. When you attempt to peek an empty stack an exception will be raised.
-5. IsEmpty - returns true when stack is empty otherwise returns false.
-
-### Queue methods
-
-1. Enqueue - Nodes or items that are added to the queue.
-2. Dequeue - Nodes or items that are removed from the queue. If called when the queue is empty an exception will be raised.
-3. Front - This is the front/first Node of the queue.
-5. Back - This is the back/rear/last Node of the queue.
-6. Peek - When you peek you will view the value of the front Node in the queue. If called when the queue is empty an exception will be raised.
-7. IsEmpty - returns true when queue is empty otherwise returns false.
