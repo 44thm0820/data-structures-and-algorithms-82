@@ -1,5 +1,3 @@
-
-
 # Challenge Summary 
 
 - Implement a Queue using two Stacks.
@@ -86,26 +84,18 @@ Utilize the Single-responsibility principle: any methods you write should be cle
 
 Write tests to prove the following functionality:
 
-1. Can successfully push onto a stack
-2. Can successfully push multiple values onto a stack
-3. Can successfully pop off the stack
-4. Can successfully empty a stack after multiple pops
-5. Can successfully peek the next item on the stack
-6. Can successfully instantiate an empty stack
-7. Calling pop or peek on empty stack raises exception
-8. Can successfully enqueue into a queue
-9. Can successfully enqueue multiple values into a queue
-10. Can successfully dequeue out of a queue the expected value
-11. Can successfully peek into a queue, seeing the expected value
-12. Can successfully empty a queue after multiple dequeues
-13. Can successfully instantiate an empty queue
-14. Calling dequeue or peek on empty queue raises exception
+1. Can successfully enqueue into a pseudoqueue
+2. Can successfully enqueue multiple values into a pseudoqueue
+3. Can successfully dequeue out of a pseudoqueue the expected value
+4. Can successfully empty a pseudoqueue after multiple dequeues
+5. Can successfully instantiate an empty pseudoqueue
+6. Calling dequeue on empty pseudoqueue raises exception
 
 Ensure your tests are passing before you submit your solution.
 
 ## Whiteboard Process
 <!-- Embedded whiteboard image -->
-![code challenge 11 whiteboard - Rey Mercado](./wb-codechallenge-11-rey.png)
+![code challenge 11 whiteboard - Rey Mercado](./stack-queue-pseudo.png)
 
 ## Approach & Efficiency
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
@@ -114,3 +104,48 @@ I followed the directions from the readings and lecture as my approach to build 
 ## Solution
 <!-- Show how to run your code, and examples of it in action -->
 
+````
+npm test stack-pseudoqueue.test.js
+
+> data-structures-and-algorithms@1.0.0 test
+> jest --verbose --coverage "stack-pseudoqueue.test.js"
+
+ PASS  __tests__/stack-pseudoqueue.test.js
+  testing the Stack Class
+    ✓ Can successfully instantiate an empty stack (1 ms)
+    ✓ Can properly push onto a stack (1 ms)
+    ✓ Can successfully push multiple values onto a stack
+    ✓ Can successfully pop off the stack (1 ms)
+    ✓ Can successfully empty a stack after multiple pops (1 ms)
+    ✓ Can successfully peek the next item on the stack
+    ✓ Calling pop or peek on empty stack raises exception (43 ms)
+  testing the PseudoQueue Class
+    ✓ Can successfully enqueue into a pseudoqueue
+    ✓ Can successfully enqueue multiple values into a pseudoqueue (1 ms)
+    ✓ Can successfully dequeue out of a pseudoqueue the expected value
+    ✓ Can successfully empty a pseudoqueue after multiple dequeues
+    ✓ Can successfully instantiate an empty pseudoqueue
+    ✓ Calling dequeue on empty pseudoqueue raises exception
+
+  console.log
+    you cannot pop if stack is empty
+
+      at Stack.peek (index.js:38:15)
+
+  console.log
+    you cannot pop if stack is empty
+
+      at Stack.pop (index.js:27:15)
+
+----------|---------|----------|---------|---------|-------------------
+File      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------|---------|----------|---------|---------|-------------------
+All files |     100 |      100 |     100 |     100 |                   
+ index.js |     100 |      100 |     100 |     100 |                   
+----------|---------|----------|---------|---------|-------------------
+Test Suites: 1 passed, 1 total
+Tests:       13 passed, 13 total
+Snapshots:   0 total
+Time:        1.054 s, estimated 2 s
+Ran all test suites matching /stack-pseudoqueue.test.js/i.
+````

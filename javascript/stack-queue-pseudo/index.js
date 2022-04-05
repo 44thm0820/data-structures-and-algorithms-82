@@ -43,91 +43,39 @@ class Stack {
   }
 }
 
-class Queue {
+
+class PseudoQueue {
   constructor() {
-    this.front = null;
-    this.back = null;
+    this.stack1 = new Stack();
+    this.stack2 = new Stack();
     this.size = 0;
   }
-  isEmpty() {
-    return this.size <= 0;
-  }
-  dequeue() {
-    if (this.isEmpty()) {
-      console.log('you cannot dequeue if queue is empty');
-      return undefined;
-    }
-    let temp = this.front;
-    this.front = temp.next;
-    temp.next = null;
-    this.size -= 1;
-    return temp.value;
-  }
   enqueue(value) {
-    let node = new Node(value);
-    if (this.size === 0) {
-      this.front = node;
-      this.back = node;
-    } else {
-      this.back.next = node;
-      this.back = node;
+    if (!this.stack2.isEmpty()) {
+      while(!this.stack2.isEmpty()) {
+        this.stack1.push(this.stack2.pop());
+      }
     }
+    this.stack1.push(value);
     this.size += 1;
     return this.size;
   }
-
-  peek() {
-    if (this.isEmpty()) {
-      console.log('you cannot dequeue if queue is empty');
-      return undefined;
-    } else {
-      return this.front.value;
+  dequeue() {
+    if (this.stack1.isEmpty() && this.stack2.isEmpty()) {
+      throw 'you cannot dequeue an empty PseudoQueue!';
     }
-  }
-
-}
-
-class LinkedList {
-  constructor() {
-    this.head = null;
-  }
-
-  add(value) {
-    if (this.head === null) {
-      this.head = new Node(value);
-    } else {
-      let nodeToInsert = new Node(value);
-      nodeToInsert.next = this.head;
-      this.head = nodeToInsert;
-    }
-  }
-
-  includes(value) {
-    let currentHead = this.head;
-    do {
-      if (currentHead.value === value) {
-        return true;
+    if (!this.stack1.isEmpty()) {
+      while(!this.stack1.isEmpty()) {
+        this.stack2.push(this.stack1.pop());
       }
-      currentHead = currentHead.next;
-    } while (currentHead);
-    return false;
-  }
-
-  toString() {
-    let result = [];
-    let current = this.head;
-
-    while (current !== null) { // if truthy we know that current is equal to a node.
-      result.push(`[ ${current.value} ]`);
-      current = current.next;
     }
-    return result.join(' -> ') + ' -> NULL';
+    this.size -= 1;
+    return this.stack2.pop();
   }
 }
-
 
 // exports.Node = Node;
 
-module.exports = { Node, Stack, Queue, LinkedList };
+module.exports = { Node, Stack, PseudoQueue };
 
 
