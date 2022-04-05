@@ -1,6 +1,6 @@
 'use strict';
 const { describe } = require('eslint/lib/rule-tester/rule-tester');
-const { Stack, Queue } = require('../index.js');
+const { Stack, Queue, PseudoQueue } = require('../index.js');
 // const { Node } = require('../index.js');
 
 describe('testing the Stack Class', () => {
@@ -89,85 +89,57 @@ describe('testing the Stack Class', () => {
   });
 });
 
-describe('testing the Queue Class', () => {
-  test('Can successfully enqueue into a queue', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.enqueue(2)).toEqual(1);
+
+
+describe('testing the PseudoQueue Class', () => {
+  test('Can successfully enqueue into a pseudoqueue', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.size).toEqual(0);
+    expect(pqueue.enqueue(2)).toEqual(1);
   });
-  test('Can successfully enqueue multiple values into a queue', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
+  test('Can successfully enqueue multiple values into a pseudoqueue', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.enqueue(3)).toEqual(1);
+    expect(pqueue.enqueue('2')).toEqual(2);
+    expect(pqueue.enqueue(false)).toEqual(3);
   });
-  // Can successfully dequeue out of a queue the expected value
-  test('Can successfully dequeue out of a queue the expected value', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-  });
-  // Can successfully peek into a queue, seeing the expected value
-  test('Can successfully peek into a queue, seeing the expected value', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-    expect(queue.peek()).toEqual('2');
+  // Can successfully dequeue out of a pseudoqueue the expected value
+  test('Can successfully dequeue out of a pseudoqueue the expected value', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.enqueue(3)).toEqual(1);
+    expect(pqueue.enqueue('2')).toEqual(2);
+    expect(pqueue.dequeue()).toEqual(3);
+    expect(pqueue.size).toEqual(1);
+    expect(pqueue.enqueue('hello')).toEqual(2);
+    expect(pqueue.dequeue()).toEqual('2');
+
   });
 
-  // Can successfully empty a queue after multiple dequeues
-  test('Can successfully empty a queue after multiple dequeues', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-    expect(queue.peek()).toEqual('2');
-    expect(queue.dequeue()).toEqual('2');
-    expect(queue.isEmpty()).toEqual(true);
-    expect(queue.size).toEqual(0);
+  // Can successfully empty a pseudoqueue after multiple dequeues
+  test('Can successfully empty a pseudoqueue after multiple dequeues', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.enqueue(3)).toEqual(1);
+    expect(pqueue.enqueue('2')).toEqual(2);
+    expect(pqueue.dequeue()).toEqual(3);
+    expect(pqueue.size).toEqual(1);
+    expect(pqueue.dequeue()).toEqual('2');
+    expect(pqueue.size).toEqual(0);
   });
 
-  // Can successfully instantiate an empty queue
-  test('Can successfully instantiate an empty queue', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.isEmpty()).toEqual(true);
-  });
-  // Calling dequeue or peek on empty queue raises exception
-  test('Calling dequeue or peek on empty queue raises exception', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.isEmpty()).toEqual(true);
-    expect(queue.dequeue()).toEqual(undefined);
-    expect(queue.peek()).toEqual(undefined);
+  // Can successfully instantiate an empty pseudoqueue
+  test('Can successfully instantiate an empty pseudoqueue', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.size).toEqual(0);
   });
 
+  // Calling dequeue on empty pseudoqueue raises exception
+  test('Calling dequeue on empty pseudoqueue raises exception', () => {
+    let pqueue = new PseudoQueue();
+    expect(pqueue.size).toEqual(0);
+    expect(() => {
+      pqueue.dequeue();
+    }).toThrow('you cannot dequeue an empty PseudoQueue!');
+  });
 });
 
 
