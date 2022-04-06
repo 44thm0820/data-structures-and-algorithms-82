@@ -1,6 +1,6 @@
 'use strict';
 const { describe } = require('eslint/lib/rule-tester/rule-tester');
-const { Stack, Queue } = require('../index.js');
+const { Stack, Queue, AnimalShelter, Animal, Cat, Dog } = require('../index.js');
 // const { Node } = require('../index.js');
 
 describe('testing the Stack Class', () => {
