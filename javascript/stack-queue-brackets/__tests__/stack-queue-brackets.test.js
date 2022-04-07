@@ -1,7 +1,6 @@
 'use strict';
 const { describe } = require('eslint/lib/rule-tester/rule-tester');
-const { Stack, Queue, AnimalShelter, Animal, Cat, Dog } = require('../index.js');
-// const { Node } = require('../index.js');
+const { Stack, validBrackets } = require('../index.js');
 
 describe('testing the Stack Class', () => {
   // Can successfully instantiate an empty stack
@@ -89,85 +88,32 @@ describe('testing the Stack Class', () => {
   });
 });
 
-describe('testing the Queue Class', () => {
-  test('Can successfully enqueue into a queue', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.enqueue(2)).toEqual(1);
-  });
-  test('Can successfully enqueue multiple values into a queue', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-  });
-  // Can successfully dequeue out of a queue the expected value
-  test('Can successfully dequeue out of a queue the expected value', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-  });
-  // Can successfully peek into a queue, seeing the expected value
-  test('Can successfully peek into a queue, seeing the expected value', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-    expect(queue.peek()).toEqual('2');
-  });
+describe('testing the validBrackets function', () => {
 
-  // Can successfully empty a queue after multiple dequeues
-  test('Can successfully empty a queue after multiple dequeues', () => {
-    let queue = new Queue();
-    expect(queue.enqueue(3)).toEqual(1);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual(3);
-    expect(queue.enqueue('2')).toEqual(2);
-    expect(queue.front.value).toEqual(3);
-    expect(queue.back.value).toEqual('2');
-    expect(queue.dequeue()).toEqual(3);
-    expect(queue.size).toEqual(1);
-    expect(queue.peek()).toEqual('2');
-    expect(queue.dequeue()).toEqual('2');
-    expect(queue.isEmpty()).toEqual(true);
-    expect(queue.size).toEqual(0);
-  });
+  let a = '{}';
+  let b = '{}(){}';
+  let c = '()[[Extra Characters]]';
+  let d = '(){}[[]]';
+  let e = '{}{Code}[Fellows](())';
+  let f = '[({}]';
+  let g = '(](';
+  let h = '{(})';
+  let i = '{';
+  let j = ')';
+  let k = '[}';
 
-  // Can successfully instantiate an empty queue
-  test('Can successfully instantiate an empty queue', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.isEmpty()).toEqual(true);
+  test('Can successfully return the correct value', () => {
+    expect(validBrackets(a)).toEqual(true);
+    expect(validBrackets(b)).toEqual(true);
+    expect(validBrackets(c)).toEqual(true);
+    expect(validBrackets(d)).toEqual(true);
+    expect(validBrackets(e)).toEqual(true);
+    expect(validBrackets(f)).toEqual(false);
+    expect(validBrackets(g)).toEqual(false);
+    expect(validBrackets(h)).toEqual(false);
+    expect(validBrackets(i)).toEqual(false); // error unmatched opening { remaining.
+    expect(validBrackets(j)).toEqual(false); // error closing ) arrived without corresponding opening.
+    expect(validBrackets(k)).toEqual(false); // error closing }. Doesn’t match opening (.
   });
-  // Calling dequeue or peek on empty queue raises exception
-  test('Calling dequeue or peek on empty queue raises exception', () => {
-    let queue = new Queue();
-    expect(queue.front).toEqual(null);
-    expect(queue.back).toEqual(null);
-    expect(queue.size).toEqual(0);
-    expect(queue.isEmpty()).toEqual(true);
-    expect(queue.dequeue()).toEqual(undefined);
-    expect(queue.peek()).toEqual(undefined);
-  });
-
 });
-
 
