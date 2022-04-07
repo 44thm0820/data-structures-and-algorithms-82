@@ -89,6 +89,7 @@ describe('testing the Stack Class', () => {
 });
 
 describe('testing the validBrackets function', () => {
+
   let a = '{}';
   let b = '{}(){}';
   let c = '()[[Extra Characters]]';
@@ -97,6 +98,10 @@ describe('testing the validBrackets function', () => {
   let f = '[({}]';
   let g = '(](';
   let h = '{(})';
+  let i = '{';
+  let j = ')';
+  let k = '[}';
+
   test('Can successfully return the correct value', () => {
     expect(validBrackets(a)).toEqual(true);
     expect(validBrackets(b)).toEqual(true);
@@ -106,6 +111,9 @@ describe('testing the validBrackets function', () => {
     expect(validBrackets(f)).toEqual(false);
     expect(validBrackets(g)).toEqual(false);
     expect(validBrackets(h)).toEqual(false);
+    expect(validBrackets(i)).toEqual(false); // error unmatched opening { remaining.
+    expect(validBrackets(j)).toEqual(false); // error closing ) arrived without corresponding opening.
+    expect(validBrackets(k)).toEqual(false); // error closing }. Doesn’t match opening (.
   });
 });
 
